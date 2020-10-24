@@ -3,17 +3,18 @@
 % Fragmentation Index example
 %
 % This code provides an example of usage of the fragmentation index 
-% (published in bioRxiv doi:123345-2) intended to use, but not limited to 
-% sleep-wake scorings. This example calculates the fragmentation index of 2
-% conditions, one following vehicle and the other following CNO
-% administration. 
+% (published in Mondino, et al 2020 
+% available at https://www.biorxiv.org/content/10.1101/2020.10.20.347260v1) 
+% intended to use, but not limited to sleep-wake scorings. 
+% This example calculates the fragmentation index of 2 conditions, 
+% one following vehicle and the other following CNO administration. 
 %
 % Joaquin Gonzalez, Laboratorio de Neurobiologia del Sueno, Facultad de 
 % Medicina, Universidad de la Republica, Uruguay. 2020
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-clear, clc, clf
+clear, clc
 
 
 % load sleep scorings and define the numerical code used to represent each state
@@ -23,20 +24,24 @@ sleep_code = {'Wake','NREM','REM'}; % thus a 1 = wake, 2 = NREM and 3 = REM
 
 %% plot hypnogram
 
+t = [1:5:21600]; % generate time vector
+
 figure(1)
 
 subplot(2,1,1)
-plot(SleepScore_veh)
+plot(t,SleepScore_veh)
 ylim([1,3.5])
-set(gca, 'YTick', [1,2,3],'YTickLabel', {'W','NREM','REM'})
+xlim([0,21600])
+set(gca, 'YTick', [1,2,3],'YTickLabel', {'W','NREM','REM'},'XTick',[0:3600:21600],'XTickLabel',[0:6])
 title('Vehicle')
 
 subplot(2,1,2)
-plot(SleepScore_cno)
+plot(t,SleepScore_cno)
 ylim([1,3.5])
+xlim([0,21600])
+xlabel('Time (hs)')
 
-xlabel('Time (sec)')
-set(gca, 'YTick', [1,2,3],'YTickLabel', {'W','NREM','REM'})
+set(gca, 'YTick', [1,2,3],'YTickLabel', {'W','NREM','REM'},'XTick',[0:3600:21600],'XTickLabel',[0:6])
 title('CNO')
 
 %% calculate Fragmentation Index

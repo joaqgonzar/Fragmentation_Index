@@ -3,11 +3,12 @@
 % Fragmentation Index
 %
 % This code computes a fragmentation index for the states of sleep and
-% wakefulness. Paper published in bioRxiv doi:123345-2. The basic idea is
-% to model the sleep states as a markov chain, and then find the
-% conditional probabilities of the transitions. Then the fragmentation
-% index is defined as the 1 - P(X/X), that is, the probability of
-% transitioning from state X to state X in the next epoch. Taking into an
+% wakefulness. Paper published in  Mondino, et al 2020 available  at 
+% https://www.biorxiv.org/content/10.1101/2020.10.20.347260v1.
+% The basic idea is to model the sleep states as a markov chain, and then 
+% find the conditional probabilities of the transitions. Then the 
+% fragmentation index is defined as the 1 - P(X/X), that is, the probability 
+% of transitioning from state X to state X in the next epoch. Taking into an
 % account that P(X/X)+P(~X/X) = 1. 
 %
 % Joaquin Gonzalez, Laboratorio de Neurobiologia del Sueno, Facultad de 
